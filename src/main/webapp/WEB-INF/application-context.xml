@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+">
+    
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	<property name="url" value="jdbc:mysql://localhost:3306/kpistore"/>
+	<property name="username" value="kpiusr" />
+	<property name="password" value="kpi2013"/>
+    </bean>	
+
+    <bean id="kpi" class="com.upaas.projects.domain.model.kpi.KpiDetail" scope="prototype">
+    </bean>
+    
+    <bean id="company" class="com.upaas.projects.domain.model.kpi.Company" scope="prototype">
+    </bean>
+    
+    <bean id="employee" class="com.upaas.projects.domain.model.kpi.Employee" scope="prototype">
+    </bean>
+    
+    <bean id="kpiConfig" class="com.upaas.projects.domain.model.kpi.KpiConfig" scope="prototype">
+    </bean>
+    
+    <bean id="user" class="com.upaas.projects.domain.model.kpi.User" scope="prototype">
+    </bean>
+
+    <bean id="kpiRepository" class="com.upaas.projects.repository.kpi.KpiRepository">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="userRepository" class="com.upaas.projects.repository.kpi.UserRepository">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="kpiConfigRepository" class="com.upaas.projects.repository.kpi.KpiConfigRepository">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+</beans>

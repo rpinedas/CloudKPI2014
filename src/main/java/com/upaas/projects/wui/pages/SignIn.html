@@ -1,0 +1,39 @@
+<!--
+Copyright 2013 Román Pineda.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+    <wicket:head>
+        <title>Sign In</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="css/custom/signin.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </wicket:head>
+    <body>
+            <img src="images/logo.png"/>
+                     <div class="alert alert-danger" wicket:id="enclosure">
+                        <span wicket:id="feedback"></span>
+                    </div>
+            <form class="form-signin" wicket:id="signInForm">
+                    
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <input type="text" class="form-control" placeholder="Email address" name="username" id="username" wicket:id="username" size = "30">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" wicket:id="password" size = "30">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+             
+    </body>
+</html>
